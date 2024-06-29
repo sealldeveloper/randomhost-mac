@@ -26,22 +26,27 @@ Create and assign a random hostname to a Linux system every time it boots up.
   sudo chmod +x /usr/bin/randomhost
   ```
 
-  4. Copy the "randomhost.service" file to the "/etc/systemd/system/" directory:
+  4. Copy the `first-names.txt` to `/usr/share/first-names.txt`:
+  ```
+  sudo cp first-names /usr/share
+  ```
+
+  5. Copy the "randomhost.service" file to the "/etc/systemd/system/" directory:
   ```bash
   sudo cp randomhost.service /etc/systemd/system
   ```
 
-  5. Ensure the permissions of the "randomhost.service" file are 644:
+  6. Ensure the permissions of the "randomhost.service" file are 644:
   ```bash
   sudo chmod 644 /etc/systemd/system/randomhost.service
   ```
 
-  6. Refresh the systemd systemctl daemon by executing:
+  7. Refresh the systemd systemctl daemon by executing:
   ```bash
   sudo systemctl daemon-reload 
   ```
 
-  7. Enable the service by running:
+  8. Enable the service by running:
   ```bash
   sudo systemctl enable randomhost
   ```
