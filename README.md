@@ -1,7 +1,7 @@
 
 # Random Host
 
-Create and assign a random hostname to a Linux system every time it boots up.
+Create and assign a random hostname to a Linux system every time it boots up, modified to imitate a MacBook hostname.
 
 
 ## Installation
