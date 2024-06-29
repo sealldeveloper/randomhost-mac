@@ -1,22 +1,11 @@
 #!/usr/bin/env bash
-# Description: Generate and set a random hostname on Linux
+# Description: Generate and set a random hostname on Linux, that imitates a MacBook's hostname
 # Usage: set-random-hostname
 
 __set_random_hostname() {
 
   # set a prefix if you'd like (thx for the idea @czerniachowicz)
-  local prefix="server"
-
-  # set the size of the randomly generated portion
-  local random_size="6"
-
-  # generate new hostname
-  if [ -n "$prefix" ]; then
-    local new_hostname="$(echo ${prefix} | sed -e 's/[^[:alnum:]]//g')-$(head -n1 < <(fold -w${random_size} < <(tr -cd 'a-z0-9' < /dev/urandom)))"
-  else
-    local new_hostname="$(head -n1 < <(fold -w${random_size} < <(tr -cd 'a-z0-9' < /dev/urandom)))"
-  fi
-
+  new_hostname="$(shuf -n 1 /usr/share/first-names.txt)-MacBook-Pro"  
   # ensure new hostname is not too long
   if [ ${#new_hostname} -gt 63 ]; then
     new_hostname=${new_hostname:0:63}
